@@ -9,9 +9,9 @@ public class Trainer
 
     public Trainer(string name)
     {
-        Name = name;
-        Badges = 0;
-        Pokemons = new List<Pokemon>();
+        this.Name = name;
+        this.Badges = 0;
+        this.Pokemons = new List<Pokemon>();
     }
 
     public string Name

@@ -6,9 +6,9 @@
 
     public Company(string name, string department, double salary)
     {
-        Name = name;
-        Department = department;
-        Salary = salary;
+        this.Name = name;
+        this.Department = department;
+        this.Salary = salary;
     }
 
     public string Name

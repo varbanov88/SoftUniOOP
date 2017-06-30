@@ -6,8 +6,8 @@ public class Car
 
     public Car(string model, string speed)
     {
-        Model = model;
-        Speed = speed;
+        this.Model = model;
+        this.Speed = speed;
     }
 
     public string Model

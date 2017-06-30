@@ -6,9 +6,9 @@
 
     public Pokemon(string name, string element, int health)
     {
-        Name = name;
-        Element = element;
-        Health = health;
+        this.Name = name;
+        this.Element = element;
+        this.Health = health;
     }
 
     public string Name

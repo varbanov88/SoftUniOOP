@@ -7,10 +7,10 @@
 
     public Car(string model, Engine engine)
     {
-        Model = model;
-        Engine = engine;
-        Weight = 0;
-        Color = "n/a";
+        this.Model = model;
+        this.Engine = engine;
+        this.Weight = 0;
+        this.Color = "n/a";
     }
 
     public string Model

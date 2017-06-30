@@ -1,13 +1,7 @@
-﻿public class Pokemon
+﻿public class Cat
 {
     private string name;
-    private string type;
-
-    public Pokemon(string name, string type)
-    {
-        this.Name = name;
-        this.Type = type;
-    }
+    private string breed;
 
     public string Name
     {
@@ -21,15 +15,16 @@
         }
     }
 
-    public string Type
+    public string Breed
     {
         get
         {
-            return this.type;
+            return this.breed;
         }
         set
         {
-            this.type = value;
+            this.breed = value;
         }
     }
 }
+

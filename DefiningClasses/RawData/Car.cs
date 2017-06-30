@@ -10,9 +10,9 @@ public class Car
     public Car(string model, Engine engine, Cargo cargo, List<Tire> tires)
     {
         this.tires = new List<Tire>(tires);
-        Engine = engine;
-        Cargo = cargo;
-        Model = model;
+        this.Engine = engine;
+        this.Cargo = cargo;
+        this.Model = model;
     }
 
     public string Model

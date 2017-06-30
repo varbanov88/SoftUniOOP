@@ -7,10 +7,10 @@
 
     public Engine(string model, int power)
     {
-        Model = model;
-        Power = power;
-        Displacement = 0;
-        Efficienty = "n/a";
+        this.Model = model;
+        this.Power = power;
+        this.Displacement = 0;
+        this.Efficienty = "n/a";
     }
 
     public string Model
