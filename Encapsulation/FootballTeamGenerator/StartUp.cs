@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 
@@ -6,41 +7,54 @@ public class StartUp
 {
     public static void Main()
     {
-        var teamInfo = Console.ReadLine().Split(';');
-        var team = new Team(teamInfo[1]);
+        List<Team> teams = new List<Team>();
 
-        string inputLine;
-        while ((inputLine = Console.ReadLine()) != "END")
+        var input = string.Empty;
+
+        while ((input = Console.ReadLine()) != "END")
         {
-            var tokens = inputLine.Split(';');
-
+            var tokens = input.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+            var command = tokens[0];
             try
             {
-                switch (tokens[0])
+                switch (command)
                 {
+                    case "Team":
+                        teams.Add(new Team(tokens[1]));
+                        break;
+
                     case "Add":
-                        var playerName = tokens[2];
-                        var skills = tokens.Skip(3).Select(int.Parse).ToArray();
-                        var player = new Player(playerName, skills[0], skills[1], skills[2], skills[3], skills[4]);
-                        team.AddPlayer(tokens[1], player);
+                        if (!teams.Any(t => t.Name == tokens[1]))
+                        {
+                            throw new ArgumentException($"Team {tokens[1]} does not exist.");
+                        }
+                        else
+                        {
+                            var currentTeam = teams.First(t => t.Name == tokens[1]);
+                            currentTeam.AddPlayer(new Player(tokens[2], int.Parse(tokens[3]), int.Parse(tokens[4]), int.Parse(tokens[5]), int.Parse(tokens[6]), int.Parse(tokens[7])));
+                        }
                         break;
 
                     case "Remove":
-                        var plName = tokens[2];
-                        var skils = tokens.Skip(3).Select(int.Parse).ToArray();
-                        team.RemovePlayer(tokens[1], plName);
+                        var teamToRemove = teams.First(t => t.Name == tokens[1]);
+                        teamToRemove.RemovePlayer(tokens[2]);
                         break;
 
                     case "Rating":
-                        team.ShowTeamRating(tokens[1]);
+                        if (!teams.Any(t => t.Name == tokens[1]))
+                        {
+                            throw new ArgumentException($"Team {tokens[1]} does not exist.");
+                        }
+                        else
+                        {
+                            Console.WriteLine(teams.First(t => t.Name == tokens[1]).ToString());
+                        }
                         break;
                 }
-
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(e.Message);
             }
         }
     }

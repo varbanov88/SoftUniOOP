@@ -4,68 +4,71 @@ using System.Linq;
 
 public class Team
 {
+    private string name;
+    private IList<Player> players;
+
     public Team(string name)
     {
         this.Name = name;
         this.players = new List<Player>();
     }
 
-    private string name;
-    private int rating;
-    private List<Player> players;
-
     public string Name
     {
-        get
+        get { return this.name; }
+        private set
         {
-            return this.name;
-        }
-        set
-        {
-            if (string.IsNullOrWhiteSpace(value))
+            if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
             {
-                throw new ArgumentException("A name should not be empty.");
+                throw new ArgumentException($"A name should not be empty.");
             }
+
             this.name = value;
         }
     }
 
-    public void AddPlayer(string team, Player player)
+    private IList<Player> Players
     {
-        if (this.Name != team)
-        {
-            throw new ArgumentException($"Team {team} does not exist.");
-        }
+        get { return this.players; }
+        set { this.players = value; }
+    }
 
+    public int Rating
+    {
+        get { return CalculateTeamRating(); }
+    }
+
+    private int CalculateTeamRating()
+    {
+        if (this.players.Any())
+        {
+            return (int)Math.Round(this.players.Average(p => p.Stats));
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    public void AddPlayer(Player player)
+    {
         this.players.Add(player);
     }
 
-    public void RemovePlayer(string team, string playerName)
+    public void RemovePlayer(string player)
     {
-        var currPlayer = this.players.FirstOrDefault(p => p.Name == playerName);
-        if (currPlayer == null)
+        if (!this.players.Any(p => p.Name == player))
         {
-            throw new ArgumentException($"Player {playerName} is not in {team} team. ");
+            throw new ArgumentException($"Player {player} is not in {this.Name} team. ");
         }
 
-        this.players.Remove(currPlayer);
+        Player pl = this.players.FirstOrDefault(p => p.Name == player);
+        this.players.Remove(pl);
     }
 
-    public void ShowTeamRating(string team)
+    public override string ToString()
     {
-        if (this.Name != team)
-        {
-            throw new ArgumentException($"Team {team} does not exist.");
-        }
-
-        if (this.players.Count == 0)
-        {
-            Console.WriteLine($"{this.Name} - 0");
-            return;
-        }
-
-        var skill = Math.Ceiling(this.players.Average(p => p.OverallSkill));
-        Console.WriteLine($"{this.Name} - {skill}");
+        return $"{this.name} - {this.Rating}";
     }
 }
 

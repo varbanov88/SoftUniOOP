@@ -1,134 +1,113 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 public class Player
 {
-    public Player(string name, int endurance, int sprint, int drible, int passing, int shooting)
-    {
-        this.Name = name;
-        this.Endurance = endurance;
-        this.Sprint = sprint;
-        this.Drible = drible;
-        this.Passing = passing;
-        this.Shooting = shooting;
-        this.overallSkill = CalculateOverallSkill();
-    }
-
-    private const int MinValue = 0;
-    private const int MaxValue = 100;
-
-    private string name;
+    private int dribble;
     private int endurance;
-    private int sprint;
-    private int drible;
+    private string name;
     private int passing;
     private int shooting;
-    private double overallSkill;
+    private int sprint;
 
     public string Name
     {
-        get
+        get { return this.name; }
+        private set
         {
-            return this.name;
-        }
-        set
-        {
-            if (string.IsNullOrWhiteSpace(value))
+            if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
             {
-                throw new ArgumentException("A name should not be empty.");
+                throw new ArgumentException($"A name should not be empty.");
             }
+
             this.name = value;
         }
     }
 
-    public int Endurance
+    public Player(string name, int endurance, int sprint, int dribble, int passing, int shooting)
     {
-        get
-        {
-            return this.endurance;
-        }
+        this.Name = name;
+        this.Endurance = endurance;
+        this.Sprint = sprint;
+        this.Dribble = dribble;
+        this.Passing = passing;
+        this.Shooting = shooting;
+    }
+
+    public int Stats { get { return CalculateAverageStats(); } }
+
+    private int Dribble
+    {
+        get { return this.dribble; }
         set
         {
-            if (value < MinValue || value > MaxValue)
+            if (value < 0 || value > 100)
             {
-                throw new ArgumentException($"{nameof(Endurance)} should be between 0 and 100. ");
+                throw new ArgumentException($"Dribble should be between 0 and 100.");
             }
+
+            this.dribble = value;
+        }
+    }
+
+    private int Endurance
+    {
+        get { return this.endurance; }
+        set
+        {
+            if (value < 0 || value > 100)
+            {
+                throw new ArgumentException($"Endurance should be between 0 and 100.");
+            }
+
             this.endurance = value;
         }
     }
 
-    public int Sprint
+    private int Passing
     {
-        get
-        {
-            return this.sprint;
-        }
+        get { return this.passing; }
         set
         {
-            if (value < MinValue || value > MaxValue)
+            if (value < 0 || value > 100)
             {
-                throw new ArgumentException($"{nameof(Sprint)} should be between 0 and 100. ");
+                throw new ArgumentException($"Passing should be between 0 and 100.");
             }
-            this.sprint = value;
-        }
-    }
 
-    public int Drible
-    {
-        get
-        {
-            return this.drible;
-        }
-        set
-        {
-            if (value < MinValue || value > MaxValue)
-            {
-                throw new ArgumentException($"{nameof(Drible)} should be between 0 and 100. ");
-            }
-            this.drible = value;
-        }
-    }
-
-    public int Passing
-    {
-        get
-        {
-            return this.passing;
-        }
-        set
-        {
-            if (value < MinValue || value > MaxValue)
-            {
-                throw new ArgumentException($"{nameof(Passing)} should be between 0 and 100. ");
-            }
             this.passing = value;
         }
     }
 
-    public int Shooting
+    private int Shooting
     {
-        get
-        {
-            return this.shooting;
-        }
+        get { return this.shooting; }
         set
         {
-            if (value < MinValue || value > MaxValue)
+            if (value < 0 || value > 100)
             {
-                throw new ArgumentException($"{nameof(Shooting)} should be between 0 and 100. ");
+                throw new ArgumentException($"Shooting should be between 0 and 100.");
             }
+
             this.shooting = value;
         }
     }
 
-    public double OverallSkill => this.overallSkill;
-
-    private double CalculateOverallSkill()
+    private int Sprint
     {
-        var skills = new List<int> { this.Passing, this.Shooting, this.Sprint, this.Endurance, this.Drible };
+        get { return this.sprint; }
+        set
+        {
+            if (value < 0 || value > 100)
+            {
+                throw new ArgumentException($"Sprint should be between 0 and 100.");
+            }
 
-        return skills.Average();
+            this.sprint = value;
+        }
+    }
+
+    private int CalculateAverageStats()
+    {
+        return (int)Math.Round((this.Dribble + this.Endurance + this.Passing + this.Shooting + this.Sprint) / (double)5);
     }
 }
 
