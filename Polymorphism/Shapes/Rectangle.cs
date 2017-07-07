@@ -11,12 +11,12 @@
 
     public override double CalculateArea()
     {
-        return this.height + this.width;
+        return this.width * this.height;
     }
 
     public override double CalculatePerimeter()
     {
-        return (2 * this.height) + (2 * this.width);
+        return 2 * (this.width + this.height);
     }
 
     public override string Draw()

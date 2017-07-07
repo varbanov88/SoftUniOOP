@@ -11,7 +11,7 @@ public class Circle : Shape
 
     public override double CalculateArea()
     {
-        return Math.PI * this.radius * this.radius;
+        return Math.PI * (this.radius * this.radius);
     }
 
     public override double CalculatePerimeter()
