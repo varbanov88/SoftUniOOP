@@ -1,9 +1,11 @@
 ﻿using System;
 
-    public class StartUp
+public class StartUp
+{
+    public static void Main()
     {
-        public static void Main()
-        {
-        }
+        var engine = new Engine();
+        engine.Run();
     }
+}
 

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\CarManager.cs" />
+    <Compile Include="Core\Engine.cs" />
     <Compile Include="Entities\Cars\Car.cs" />
     <Compile Include="Entities\Cars\PerformanceCar.cs" />
     <Compile Include="Entities\Cars\ShowCar.cs" />
