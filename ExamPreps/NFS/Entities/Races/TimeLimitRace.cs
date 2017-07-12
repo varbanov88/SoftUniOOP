@@ -25,10 +25,9 @@ public class TimeLimitRace : Race
     {
         var winners = GetMedalAndPrice(this.Participants, this.PrizePool);
         var sb = new StringBuilder();
-        sb.AppendLine($"{this.Route} - {this.Length}");
-        sb.Append(winners);
+        sb.Append($"{this.Route} - {this.Length}" + Environment.NewLine + winners);
 
-        return sb.ToString();
+        return sb.ToString().Trim();
     }
 
     private string GetMedalAndPrice(Dictionary<int, Car> participants, int price)
