@@ -22,5 +22,10 @@ public abstract class Race
     public int PrizePool => this.prizePool;
 
     public Dictionary<int, Car> Participants => this.participants;
+
+    public virtual void AddPaticipant(int id, Car car)
+    {
+        this.participants.Add(id, car);
+    }
 }
 

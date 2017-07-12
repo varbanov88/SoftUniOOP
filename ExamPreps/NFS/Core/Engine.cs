@@ -49,7 +49,16 @@ public class Engine
                 var route = cmdArgs[4];
                 var prizePool = int.Parse(cmdArgs[5]);
 
-                manager.Open(id, type, length, route, prizePool);
+                if (cmdArgs.Length == 6)
+                {
+                    manager.Open(id, type, length, route, prizePool);
+                }
+
+                else
+                {
+                    manager.Open(id, type, length, route, prizePool, int.Parse(cmdArgs[6]));
+                }
+
                 break;
 
             case "participate":

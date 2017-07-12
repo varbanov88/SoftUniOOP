@@ -60,13 +60,29 @@ public class CarManager
         }
     }
 
+    public void Open(int id, string type, int length, string route, int prizePool, int bonusRace)
+    {
+        if (type == "Circuit")
+        {
+            Race race = new CircuitRace(length, route, prizePool, bonusRace);
+            this.races.Add(id, race);
+        }
+
+        else
+        {
+            Race race = new TimeLimitRace(length, route, prizePool, bonusRace);
+            this.races.Add(id, race);
+        }
+    }
+
+
     public void Participate(int carId, int raceId)
     {
         if (!this.garage.ParkedCars.ContainsKey(carId))
         {
             var race = this.races[raceId];
             var car = this.cars[carId];
-            race.Participants.Add(carId, car);
+            race.AddPaticipant(carId, car);
         }
     }
 

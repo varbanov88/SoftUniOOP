@@ -29,7 +29,14 @@ public abstract class Car
 
     public int Suspension => this.suspension;
 
-    public int Durability => this.durability;
+    public int Durability
+    {
+        get => this.durability;
+        set
+        {
+            this.durability = value;
+        }
+    }
 
     public string Brand => this.brand;
 
