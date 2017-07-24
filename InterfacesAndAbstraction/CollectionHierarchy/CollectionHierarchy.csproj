@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{60F06B31-9BE6-49D5-B34E-45AC8385076F}</ProjectGuid>
+    <ProjectGuid>{3D6F8A6A-0E7F-4FD1-B5E4-21C80024C194}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>BorderControl</RootNamespace>
-    <AssemblyName>BorderControl</AssemblyName>
+    <RootNamespace>CollectionHierarchy</RootNamespace>
+    <AssemblyName>CollectionHierarchy</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,11 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Citizen.cs" />
-    <Compile Include="IBirthable.cs" />
-    <Compile Include="ICreature.cs" />
-    <Compile Include="Pet.cs" />
-    <Compile Include="Robot.cs" />
+    <Compile Include="AddCollection.cs" />
+    <Compile Include="AddRemoveCollection.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="Interfaces\IAddCollection.cs" />
+    <Compile Include="Interfaces\IAddRemoveCollection.cs" />
+    <Compile Include="Interfaces\IMyList.cs" />
+    <Compile Include="MyList.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

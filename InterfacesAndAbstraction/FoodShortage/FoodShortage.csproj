@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{60F06B31-9BE6-49D5-B34E-45AC8385076F}</ProjectGuid>
+    <ProjectGuid>{4263AF73-3527-440A-B089-5B4122BA5DDE}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>BorderControl</RootNamespace>
-    <AssemblyName>BorderControl</AssemblyName>
+    <RootNamespace>FoodShortage</RootNamespace>
+    <AssemblyName>FoodShortage</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,10 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Citizen.cs" />
-    <Compile Include="IBirthable.cs" />
-    <Compile Include="ICreature.cs" />
-    <Compile Include="Pet.cs" />
-    <Compile Include="Robot.cs" />
+    <Compile Include="IBuyer.cs" />
+    <Compile Include="Rebel.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
