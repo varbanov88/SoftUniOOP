@@ -10,6 +10,7 @@ public class CoffeeMachine : ICoffeeMachine
     {
         this.coffeesSold = new List<CoffeeType>();
     }
+
     public void BuyCoffee(string size, string type)
     {
         var coffeePrice = (int)Enum.Parse(typeof(CoffeePrice), size);
@@ -30,4 +31,3 @@ public class CoffeeMachine : ICoffeeMachine
 
     public IEnumerable<CoffeeType> CoffeesSold => this.coffeesSold;
 }
-

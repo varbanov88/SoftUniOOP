@@ -7,7 +7,6 @@ namespace CardPower
     {
         public static void Main()
         {
-
         }
 
         public static void GenerateDeckOfCards()
@@ -38,7 +37,7 @@ namespace CardPower
 
         public static void CardCompareTo()
         {
-            var cardRank =  Console.ReadLine();
+            var cardRank = Console.ReadLine();
             var cardSuit = Console.ReadLine();
             var card = new Card(cardRank, cardSuit);
             var secondCardRank = Console.ReadLine();

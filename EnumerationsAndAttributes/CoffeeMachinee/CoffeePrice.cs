@@ -4,4 +4,3 @@
     Normal = 100,
     Double = 200
 }
-

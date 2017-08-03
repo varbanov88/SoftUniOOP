@@ -4,4 +4,3 @@
     Latte,
     Irish
 }
-

@@ -17,7 +17,5 @@ public class StartUp
         {
             Console.WriteLine(weeklyEntry);
         }
-
     }
 }
-

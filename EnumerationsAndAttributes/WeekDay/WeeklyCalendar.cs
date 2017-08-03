@@ -16,4 +16,3 @@ public class WeeklyCalendar
         this.entries.Add(new WeeklyEntry(weekday, notes));
     }
 }
-

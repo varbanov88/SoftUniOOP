@@ -7,4 +7,3 @@
     Twenty = 20,
     Fifty = 50
 }
-
